@@ -1,6 +1,7 @@
 package rest;
 
 import org.junit.Assert;
+import org.testng.annotations.Test;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,19 +11,19 @@ import io.restassured.response.Response;
 
 public class stepDef1 {
 	Response response;
-
+@Test
 @Given("API for foreign exchange")
 public void api_for_foreign_exchange() throws Throwable {
 	RestAssured.baseURI = "https://api.ratesapi.io";
    
 }
-
+@Test
 @When("posted with correct information")
 public void posted_with_correct_information() throws Throwable {
 	response = RestAssured.get("/api/latest");
    
 }
-
+@Test
 @Then("validate positive response code received")
 public void validate_positive_response_code_received() throws Throwable {
 	int statuscode=response.getStatusCode();
